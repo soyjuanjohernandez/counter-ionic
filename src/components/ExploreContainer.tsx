@@ -1,12 +1,20 @@
+import { useCounter } from '../hooks/useCounter';
 import './ExploreContainer.css';
 
 interface ContainerProps { }
 
 const ExploreContainer: React.FC<ContainerProps> = () => {
+
+  const { counter, decrement, increment, reset } = useCounter(0)
+
   return (
     <div className="container">
-      <strong>Ready to create an app?</strong>
-      <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      <h1>{counter}</h1>
+      <button onClick={increment}>+1</button>
+      <br />
+      <button onClick={reset}>Reset</button>
+      <br />
+      <button onClick={decrement}>-1</button>
     </div>
   );
 };
